@@ -43,8 +43,11 @@ async def on_message(message):
 @bot.command()
 async def surgery(arg1):
     # Surgery meme
-    if arg1[0:1] in ['a', 'e', 'i', 'o']:
+    first_letter = arg1[0:1]
+    if first_letter in ['a', 'e', 'i', 'o']:
         await bot.say("they did surgery on an " + arg1)
+    elif first_letter == '@':
+        await bot.say("they did surgery on " + arg1)
     else:
         await bot.say("they did surgery on a " + arg1)
 
@@ -65,5 +68,19 @@ async def display():
                 frame += line
         await bot.say(frame)
         count += 1
+
+@bot.command()
+async def tax(price):
+    n = float(price)
+    await bot.say("$" + format(n, '.2f') + " + HST 13% = $" + format(n, '.2f') + " + $" +
+                  format(round(n*0.13, 2), '.2f') + " = $" + format(round(n*1.13, 2), '.2f'))
+
+@bot.command()
+async def sum(*args):
+    sum = 0
+    for arg in args:
+        sum += float(arg)
+    await bot.say("sum = " + str(sum))
+
 
 bot.run(TOKEN)
