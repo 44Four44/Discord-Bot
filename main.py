@@ -43,8 +43,10 @@ async def on_message(message):
 @bot.command()
 async def surgery(arg1):
     # Surgery meme
-    await bot.say("they did surgery on a " + arg1)
-
+    if arg1[0:1] in ['a', 'e', 'i', 'o']:
+        await bot.say("they did surgery on an " + arg1)
+    else:
+        await bot.say("they did surgery on a " + arg1)
 
 @bot.command()
 async def say(arg1):
