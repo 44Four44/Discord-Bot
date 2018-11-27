@@ -15,8 +15,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="90" column="99" selection-start-line="90" selection-start-column="99" selection-end-line="90" selection-end-column="99" />
+            <state relative-caret-position="216">
+              <caret line="99" column="52" lean-forward="true" selection-start-line="99" selection-start-column="52" selection-end-line="99" selection-end-column="52" />
               <folding>
                 <element signature="e#307#321#0" expanded="true" />
               </folding>
@@ -36,8 +36,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frames.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
+            <state relative-caret-position="90">
+              <caret line="6" column="202" selection-start-line="6" selection-start-column="202" selection-end-line="6" selection-end-column="202" />
             </state>
           </provider>
         </entry>
@@ -251,10 +251,10 @@
     <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/frames.txt">
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/discord/ext/commands/core.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="-9182">
+          <caret line="211" column="13" lean-forward="true" selection-start-line="211" selection-start-column="13" selection-end-line="211" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -265,17 +265,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/discord/ext/commands/core.py">
+    <entry file="file://$PROJECT_DIR$/frames.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9182">
-          <caret line="211" column="13" lean-forward="true" selection-start-line="211" selection-start-column="13" selection-end-line="211" selection-end-column="13" />
+        <state relative-caret-position="90">
+          <caret line="6" column="202" selection-start-line="6" selection-start-column="202" selection-end-line="6" selection-end-column="202" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="90" column="99" selection-start-line="90" selection-start-column="99" selection-end-line="90" selection-end-column="99" />
+        <state relative-caret-position="216">
+          <caret line="99" column="52" lean-forward="true" selection-start-line="99" selection-start-column="52" selection-end-line="99" selection-end-column="52" />
           <folding>
             <element signature="e#307#321#0" expanded="true" />
           </folding>
