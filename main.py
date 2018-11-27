@@ -86,6 +86,11 @@ async def sum(*args):
 async def dif(arg1, arg2):
     await bot.say(arg1 + " - " + arg2 + " = " + str(float(arg1) - float(arg2)))
 
+@bot.command()
+async def vsound(temp):
+    await bot.say("the speed of sound at " + temp + "C is " + str(331.4 + 0.606*float(temp)) + "m/s")
+
+
 
 
 bot.run(TOKEN)
