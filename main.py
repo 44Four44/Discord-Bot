@@ -29,16 +29,29 @@ async def on_message(message):
 
     input = message.content
 
-    # Counter Mr. Seidel bot
-    if input.startswith("**Hey!**"):
-        await bot.send_message(message.channel, "**HeY!** yOu cAn'T sEnd ThAT meSsaAgGe hERe! COnfIdENcE: 69%")
-
     # Help centre
     if input.startswith("?help"):
         await bot.send_message(message.channel, "kys")
 
     # Prevent overriding
     await bot.process_commands(message)
+
+@bot.event
+async def on_member_update(before, after):
+    if str(after.status) == "offline":
+        await bot.send_message(discord.Object(id='515992928246824963'), "{} died ;-;".format(after.name))
+    if str(after.status) == "online":
+        await bot.send_message(discord.Object(id='515992928246824963'), "welcome back my homie {}".format(after.name))
+
+@bot.event
+async def on_message_edit(before, after):
+    await bot.send_message(after.channel, "nice typo")
+
+
+@bot.event
+async def on_message_delete(message):
+    await bot.send_message(message.channel, "i saw that")
+
 
 @bot.command()
 async def surgery(arg1):
