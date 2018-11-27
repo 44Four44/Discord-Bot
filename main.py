@@ -19,10 +19,11 @@ TOKEN = os.environ['TOKEN']
 
 frames_path = '/Users/EthanWang/Discord_Bot/frames.txt'
 
+
 @bot.event
 async def on_ready():
     print("My name is " + bot.user.name)
-
+    await bot.change_presence(game=discord.Game(name="with sand", type=1))
 
 @bot.event
 async def on_message(message):
@@ -140,6 +141,4 @@ async def bomb(start):
         time.sleep(1)
     await bot.say("boom.")
 
-
-bot.change_presence(*, game="with sand", status=None, afk=False)
 bot.run(TOKEN)
