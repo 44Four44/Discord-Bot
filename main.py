@@ -41,7 +41,7 @@ async def on_member_update(before, after):
     if str(after.status) == "offline":
         await bot.send_message(discord.Object(id='515992928246824963'), "{} died ;-;".format(after.name))
     if str(after.status) == "online":
-        await bot.send_message(discord.Object(id='515992928246824963'), "welcome back my homie {}".format(after.name))
+        await bot.send_message(discord.Object(id='515992928246824963'), "welcome back {}".format(after.name))
 
 @bot.event
 async def on_message_edit(before, after):
@@ -77,6 +77,7 @@ async def display():
         frame += 'O'
         await bot.say(frame)
         count += 1
+        time.sleep(0.5)
 
 @bot.command()
 async def tax(price):
@@ -130,6 +131,15 @@ async def kms():
                   "▄▀▒▒▒▒█░░░░░█▄▀▀█▀░░░░░░░░░░░░")
 
 
+@bot.command()
+async def bomb(start):
+    count = int(start)
+    while count > 0:
+        await bot.say(count)
+        count -= 1
+        time.sleep(1)
+    await bot.say("boom.")
 
 
+bot.change_presence(*, game="with sand", status=None, afk=False)
 bot.run(TOKEN)
