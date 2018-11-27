@@ -82,5 +82,10 @@ async def sum(*args):
         sum += float(arg)
     await bot.say("sum = " + str(sum))
 
+@bot.command()
+async def dif(arg1, arg2):
+    await bot.say(arg1 + " - " + arg2 + " = " + str(float(arg1) - float(arg2)))
+
+
 
 bot.run(TOKEN)
