@@ -13,6 +13,7 @@ from discord.ext.commands import Bot
 import asyncio
 import os
 import time
+import random
 
 bot = commands.Bot(command_prefix='?')
 TOKEN = os.environ['TOKEN']
@@ -104,10 +105,11 @@ async def dif(arg1, arg2):
 
 @bot.command()
 async def vsound(temp):
-    await bot.say("the speed of sound at " + temp + "°C is " + str(331.4 + 0.606*float(temp)) + "m/s")
+    await bot.say("the speed of sound at " + temp + "°C is " + str(331.4 + 0.606 * float(temp)) + "m/s")
 
 @bot.command()
 async def kms():
+    # Fun spam
     await bot.say("─────────────────▄▄█▀▀▀▀▀▀▀▄▄─\n"
                   "───────────────▄█▀░░░░░░░░░░▀▀\n"
                   "─────────────▄█▀░░░░░░░░░░░░░░\n"
@@ -138,6 +140,7 @@ async def kms():
 
 @bot.command()
 async def bomb(start_time):
+    # Countdown timer
     count = int(start_time)
     while count > 0:
         await bot.say(":bomb:{}".format(count))
@@ -145,14 +148,41 @@ async def bomb(start_time):
         time.sleep(1)
     await bot.say("boom.")
 
-@bot.command()
-async def shoot(member: discord.Member):
-    await bot.say("{},:gun: you've been shot at! Quick, type 'duck'".format(member.mention))
+@bot.command(pass_context=True)
+async def shoot(ctx, member: discord.Member):
+    # Test user's responsiveness and response time
+    await bot.say("{},:gun: you've been shot at by {}! Quick, type 'duck'".format(member.mention, ctx.message.author.name))
 
     msg = await bot.wait_for_message(timeout=2, author=member, content='duck')
     if msg:
         await bot.say("whew, that was a close one")
     else:
         await bot.say("You've been killed! you snooze you lose")
+
+@bot.command(pass_context=True)
+async def reaction(ctx):
+    await bot.say("Time to test your reaction time. Send '.' as soon you see the :ok_hand:")
+
+    msg = await bot.wait_for_message(timeout=random.uniform(1, 6), author=ctx.message.author, content='.')
+    if msg:
+        # If they sent a premature '.'
+        await bot.say("Too early. Haste is waste")
+    else:
+        # If they waited it out for the signal
+        await bot.say(":ok_hand:")
+        start = time.time()
+        msg = await bot.wait_for_message(author=ctx.message.author, content='.')
+        t = round((time.time() - start)*1000)
+
+        comment = ''
+        if t < 300:
+            comment = "Barry Allen?"
+        elif t < 600:
+            comment = "not bad,"
+        elif t < 1000:
+            comment = "kinda slow there buddy,"
+        else:
+            comment = "did your keyboard disconnect?"
+        await bot.say("{} {}ms".format(comment, t))
 
 bot.run(TOKEN)
