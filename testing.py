@@ -1,11 +1,14 @@
-frames_path = '/Users/EthanWang/Discord_Bot/frames.txt'
-frame = ''
-with open(frames_path, 'r') as file:
-    data = file.readlines()
-    for line in data:
-        frame += line
-count = 0
-while count < len(data[0].rstrip()):
-    frame = 'O'
-    print(frame)
-    count += 1
+import mysql.connector
+conn = mysql.connector.connect(
+                            host="h2cwrn74535xdazj.cbetxkdyhwsb.us-east-1.rds.amazonaws.com", # Host
+                            user="y0z8umpce7iejqnf",
+                            password="wig0tj0cp6sfv174",
+                            database="ue1nsds7guapeehr"
+)
+cursor = conn.cursor()
+sqlFormula = "INSERT INTO execList (userID, username, channel) VALUE ('a','b','c')"
+cursor.execute(sqlFormula)
+conn.commit()
+cursor.close()
+conn.close()
+print("complete")

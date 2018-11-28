@@ -44,9 +44,9 @@ async def on_message(message):
 
 @bot.event
 async def on_member_update(before, after):
-    if str(after.status) == "offline":
+    if str(before.status) == "online" and str(after.status) == "offline":
         await bot.send_message(discord.Object(id='515992928246824963'), "{} died ;-;".format(after.name))
-    if str(after.status) == "online":
+    if str(before.status) == "offline" and str(after.status) == "online":
         await bot.send_message(discord.Object(id='515992928246824963'), "welcome back {}".format(after.name))
 
 @bot.event
@@ -136,7 +136,6 @@ async def kms():
                   "─▄▀▒▒▒█▀▀▀▀░▄▀██░█░░░░░░░░░░░░\n"
                   "▄▀▒▒▒▒█░░░░░█▄▀▀█▀░░░░░░░░░░░░")
 
-
 @bot.command()
 async def bomb(start_time):
     count = int(start_time)
@@ -146,10 +145,10 @@ async def bomb(start_time):
         time.sleep(1)
     await bot.say("boom.")
 
-
 @bot.command()
 async def shoot(member: discord.Member):
     await bot.say("{},:gun: you've been shot at! Quick, type 'duck'".format(member.mention))
+
     msg = await bot.wait_for_message(timeout=2, author=member, content='duck')
     if msg:
         await bot.say("whew, that was a close one")
