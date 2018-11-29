@@ -164,6 +164,7 @@ async def reaction(ctx):
     await bot.say("Time to test your reaction time. Send '.' as soon you see the :ok_hand:")
 
     msg = await bot.wait_for_message(timeout=random.uniform(1, 6), author=ctx.message.author, content='.')
+
     if msg:
         # If they sent a premature '.'
         await bot.say("Too early. Haste is waste")
